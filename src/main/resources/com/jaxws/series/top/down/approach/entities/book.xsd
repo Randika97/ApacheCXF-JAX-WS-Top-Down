@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://benchresources.in/entities/Book" xmlns:tns="http://benchresources.in/entities/Book"
+	elementFormDefault="qualified">
+
+	<!-- getBookById Request Type -->
+	<xsd:element name="BookRequestType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="isbnNumber" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- getBookById Response Type -->
+	<xsd:element name="BookResponseType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="bookISBN" type="xsd:string" />
+				<xsd:element name="bookName" type="xsd:string" />
+				<xsd:element name="author" type="xsd:string" />
+				<xsd:element name="category" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+	<!-- getAllEmployeeRequest Request Type -->
+	<xsd:element name="BookAllRequestType">
+		<xsd:complexType/>
+	</xsd:element>
+	<!-- getAllEmployeeRequest Response Type -->
+	<xsd:element name="BookAllResponseType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="bookInfo" type="tns:bookInfo" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- addBookRequest Request Type -->
+	<xsd:element name="addBookRequestType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="bookISBN" type="xsd:string" />
+				<xsd:element name="bookName" type="xsd:string" />
+				<xsd:element name="author" type="xsd:string" />
+				<xsd:element name="category" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- addBookRespons Response Type -->
+	<xsd:element name="addBookResponseType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- updateBookRequest Request Type -->
+	<xsd:element name="updateBookRequestType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="bookISBN" type="xsd:string" />
+				<xsd:element name="bookName" type="xsd:string" />
+				<xsd:element name="author" type="xsd:string" />
+				<xsd:element name="category" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- updateBookResponse Response Type -->
+	<xsd:element name="updateBookResponseType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- deleteBookRequest Request Type -->
+	<xsd:element name="deleteBookRequestType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="isbnNumber" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- deleteBookResponse Response Type -->
+	<xsd:element name="deleteBookResponseType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!--Server Status-->
+	<xsd:complexType name="serviceStatus">
+		<xsd:sequence>
+			<xsd:element name="statusCode" type="xsd:string"/>
+			<xsd:element name="message" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="bookInfo">
+		<xsd:sequence>
+			<xsd:element name="bookISBN" type="xsd:string" />
+			<xsd:element name="bookName" type="xsd:string" />
+			<xsd:element name="author" type="xsd:string" />
+			<xsd:element name="category" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
